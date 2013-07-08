@@ -1,0 +1,38 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf360
+{\fonttbl\f0\fnil\fcharset0 LucidaGrande;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10020\viewh8880\viewkind0
+\deftab720
+\pard\pardeftab720\ql\qnatural
+
+\f0\fs24 \cf0 DESIGN NOTES\
+\
+***Replacement Target***\
+> There are currently 2 replacement targets implemented in the system:\
+    -OLDEST_NEIGHBOR: the offspring replaces the oldest neighbor in the immediate vicinity. \
+    -LOWEST_ENERGY_NEIGHBOR: the offspring replaces the neighbor with the lowest energy level in the immediate vicinity. \
+> Through experience, we found that LOWEST_ENERGY speeds up the evolutionary process. In fact, OLDEST under global pressures makes it very difficult for there to be any changes at all. \
+\
+***Replication Method***\
+> There are currently 2 replication methods implemented in the system:\
+    -ON_YOUR_OWN: an offspring is born with no energy.\
+    -SPLIT_ENERGY: a parent transfers half of it's energy to the offspring.\
+> We experimented with both replication methods by creating a REPRO instruction for each. With global pressures or no interaction, both methods are used about the same. However, if the user interacts with the BIolumes through the use of the visitor, there seems to be a pressure to favor ON_YOUR_OWN over SPLIT. This is probably because, when the visitor is stationary, units on the inside are better off by not sharing their energy and keeping up with the full-energy neighbors as opposed to  exposing (and technically sacrificing) itself and the offspring to the neighbors with full energy.\
+\
+\
+***Other Discarded Considerations***\
+> 
+\b Non-additive fitness for global pressures
+\b0 : In the end of the day, the global pressures are merely for exhibition/testing in the simulator, and serve no purpose for the physical implementation. The system has never failed to match the global target and has always done so in a reasonable and demonstrable amount of time. \
+> 
+\b SEND_MESSAGE_THEN_RESET and RECEIVE_MESSAGE_THEN_RESET combo instructions
+\b0 : We already have SEND_MESSAGE, RECEIVE_MESSAGE, and resetting capabilities (via LABEL-JUMP) instructions. If there is a benefit to having these together, then let evolution put them together.\
+>
+\b  Costly reproduction
+\b0 : It may still make sense to make reproduction costly when the ON_YOUR_OWN replication method is used. However, currently the SPLIT_ENERGY method is set to be default, where replication itself implies halving a parent's energy. This seems to be a sufficient cost to reproduction for now. \
+>
+\b  Output stats on births, LED/sound switches, messages
+\b0 : These are pretty much implicit in the output of instructions executed counts (correspondingly: REPRO, LEDX_ON/OFF, X_MESSAGE, etc\'85) so we didn't bother to count how many of these took place, although it could be a simple future extension. \
+> 
+\b FREEZE instruction
+\b0 : This instruction would freeze the current state of the organism and ignore any further user inputs. Should this be a favorable thing to use, we'd rather evolution finds it using the flow control instructions instead. }

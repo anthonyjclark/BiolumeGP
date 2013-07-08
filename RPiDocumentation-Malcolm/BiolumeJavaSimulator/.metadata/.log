@@ -1,0 +1,46 @@
+!SESSION 2012-08-28 12:57:47.937 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_24
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=arm, WS=gtk, NL=en_GB
+Command-line arguments:  -os linux -ws gtk
+
+!ENTRY org.eclipse.debug.core 4 125 2012-08-28 14:08:55.299
+!MESSAGE Exception occurred executing command line.
+!STACK 0
+java.io.IOException: Cannot run program "/usr/lib/jvm/java-6-openjdk-armhf/bin/java" (in directory "/home/pi/workspace/BiolumeSimulator/Biolume/bin"): java.io.IOException: error=12, Cannot allocate memory
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:475)
+	at java.lang.Runtime.exec(Runtime.java:610)
+	at org.eclipse.debug.core.DebugPlugin.exec(DebugPlugin.java:848)
+	at org.eclipse.jdt.launching.AbstractVMRunner.exec(AbstractVMRunner.java:73)
+	at org.eclipse.jdt.internal.launching.StandardVMRunner.run(StandardVMRunner.java:317)
+	at org.eclipse.jdt.launching.JavaLaunchDelegate.launch(JavaLaunchDelegate.java:101)
+	at org.eclipse.jdt.internal.launching.JavaAppletLaunchConfigurationDelegate.launch(JavaAppletLaunchConfigurationDelegate.java:62)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.io.IOException: java.io.IOException: error=12, Cannot allocate memory
+	at java.lang.UNIXProcess.<init>(UNIXProcess.java:164)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:81)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:468)
+	... 11 more
+!SESSION 2012-08-28 14:28:34.502 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_24
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=arm, WS=gtk, NL=en_GB
+Command-line arguments:  -os linux -ws gtk
+
+!ENTRY org.eclipse.core.resources 2 10035 2012-08-28 14:29:14.996
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+!SESSION 2012-08-28 15:37:44.298 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_24
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=arm, WS=gtk, NL=en_GB
+Command-line arguments:  -os linux -ws gtk
+
+!ENTRY org.eclipse.core.resources 2 10035 2012-08-28 15:38:23.666
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.

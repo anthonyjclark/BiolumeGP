@@ -1,0 +1,54 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf360
+{\fonttbl\f0\fnil\fcharset0 LucidaGrande;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10020\viewh8880\viewkind0
+\deftab720
+\pard\pardeftab720\ql\qnatural
+
+\f0\fs24 \cf0 FUTURE WORKS:\
+\
+- Biolume sound\
+  > Play sound of "selected" Biolume\
+  > Play sound of Biolumes near mouse\
+\
+- Update Biolume looks\
+  > Biolume image with shapes overlaid for actuators\
+\
+  > Reproduction should be (more) costly ?\
+  \
+- Adjust Biolume stepping\
+  > Variable speeds (each Biolume goes runs through its genome in a certain amount of time)\
+  > Randomly select Biolume stepping order\
+  \
+- Add instructions\
+  > Add a mark inst (label an instruction to jump to)\
+  > Add a jump inst (jump to label)\
+  > Clear sensor flags (to ignore sensory inputs for a certain amount of time)\
+  \
+\
+- Stats\
+> \
+\
+- Code Cleansing (begins Wednesday, after the presentation)\
+ > Agree on standards\
+ > Create a config file where we'll shove off all constants\
+ > Kill all the magic numbers\
+ > Properly document every method/variable\
+\
+DONE:\
+- Evolutionary Pressures\
+\uc0\u10003  Implement global pressures. \
+   --A target color for each LED will be chosen by the user. \
+   --Each global pressure acts independently. \
+   --The amount of energy awarded to each Biolume will be directly proportional to how close the displayed color is to the target.\
+   --LEDs that are turned OFF will receive no reward.\
+\uc0\u10003  Implement interactive pressures based off Biolume sensors. \
+   --Detect a visitor's touch (mouse click on the unit).\
+   --Detect a visitor's movement (mouse movement on the unit). \
+   --Detect a visitor's sound (mouse movement on the unit and neighbors).\
+   --Detect a visitor's CO2 (mouse movement on the unit, neighbors, and their neighbors. \
+- Visualization\
+\uc0\u10003  A battery-like meter will display the Biolume's energy level.\
+\uc0\u10003  A letter (p or c) allow the user to distinguish between parent and child during reproduction.\
+\uc0\u10003  The cursor transforms into a \ul random\ulnone  museum visitor when in the Biolume arena.\
+\uc0\u10003  When paused, clicking on a Biolume will display its information.}

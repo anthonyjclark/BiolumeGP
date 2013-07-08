@@ -1,0 +1,128 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf360
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww14760\viewh11800\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 8/5/11 @ 8:40 DC\
+Targets: Simulator\
+-While energy was being awarded to those who detected sound and CO2, the flags were not being reset unless they were the local unit. This bug has been fixed, and this version is now declared STABLE!\
+\
+8/5/11 @ 3:06 DC\
+Targets: Instruction, Biolume, Simulator\
+-Created sensor flags with setters and getters. Integrated and tested them. The flags get reset when the genome wraps around to the beginning. \
+\
+8/4/11 @ 4:23 DC\
+Targets: Variable, Biolume, Simulator\
+-Let it run for a while, pause it, and click on a Biolume.\
+\
+8/4/11 @10:50 AF\
+-fixed mouse over coordinates for LED1 global pressure buttons\
+\
+8/4/11 @ 1:50 DC\
+Target: Biolume, Instruction, Simulator\
+-Non-viable Biolumes no longer exist. If a reproducing Biolume were to create an infertile child, it gets killed off immediately and a new one is generated until one with at least 1 'repro' is generated. \
+-The dude only appears in the Biolume arena. The cursor reverts to an arrow upon exiting the arena. \
+-Updated Biolume detectors as per Tony's paper:\
+--Motion detected only by local Biolume and gutter.\
+--Sound detected by local Biolume and its neighbors.\
+--CO2 detected by local Biolume, neighbors, and neighbors of neighbors.\
+--Energy awarded varies by closeness. \
+\
+8/4/11 @ 12:04 DC\
+Target: Variable, Biolume, Simulator\
+-Implemented energy decay. All instructions are treated equally. After executing an instruction, the Biolume's energy decays by a constant amount. Floor is 0. \
+-Implemented motion, sound & C02. I don't know the details of how sensitive the sensors are with respect to each other, so here's my preliminary made-up rules of how the world works (which may be modified at any time):\
+--If a person moves, it will make a sound. \
+--A person does not expel C02 unless it moves. \
+--A Biolume can only detect motion locally (if the person moves on the Biolume or in it's corresponding gutter).\
+--A Biolume can detect C02 and sound within its neighborhood (if the person moves on the Biolume, its gutter, on one of its neighbors, or one of their gutters).\
+--Energy rewarded for motion > energy rewarded for C02\
+--Energy rewarded for C02 = energy rewarded for sound\
+--There are still no flags for these events\'85 I'm only awarding immediate energy.\
+\
+8/3/11 @ 11:11 DC\
+Target: Simulator\
+-LED pressures are now independent\'85 but we need a way to tell if they're on or off (intuitively speaking). \
+\
+8/3/11 @10:26 DC ~~That's been working since 7:00. This thing looks great!\
+Targets: Biolume, Variable, Simulator, Instruction\
+-Buttons no longer disappear when resizing the applet.\
+-Biolumes with LEDs that are OFF are no longer rewarded for it. Had to add 2 variables (LED0_on and LED1_on) to keep track through messages. \
+\
+8/3/11 @ 6:15 DC\
+Targets: Biolume, Simulator\
+-Fixed selection. Global pressures actually work now (and pretty darn well). \
+-Changed Gaussian deviation to 20 for more drastic changes w/o having to increase mutation rates.\
+-Added a ceiling and floor to Saturation and Brightness (no wraparounds allowed). \
+\
+8/3/11 @ 12:10 AF TC\
+-Added color picker for global pressure\
+-changed size of color picker\
+\
+8/3/11 @ 10:20 TC\
+Target: Simulator.replace_biolume(), Biolume.parent_reproduce()\
+- in case of ties, a child is randomly selected from the candidates\
+- replacement strategy is now an input to replace_biolume()\
+- possible strategies: lowest energy neighbor, oldest neighbor\
+Target: Simulator.setup()\
+- the color of the global pressure on button is now the color being pressured for\
+\
+8/3/11 @ 12:34 DC\
+Target: Simulator, Biolume\
+-Manned up.\
+-The walls have fallen.\
+-Replace weakest instead of oldest.\
+\
+8/2/11 @ 10:14 TC\
+Target: Simulator.mouse_pressed()\
+- Fixed the Biolume press check so it no longer adds energy when a gutter is pressed\
+\
+8/2/11 @10:03 DC\
+Target: Instruction, Simulator.mouse_pressed(), StepBiolumesThread.is_paused()\
+-Upped mutation rates. Added guards for when pressing in gutters or other buttons outside the Biolume area. Also added guards for when the system is paused.\
+\
+8/2/11 @ 1:52 DC\
+Target: Biolume.display(), Simulator, Simulator.setup(), media\
+-Added battery meter to biomes. Battery images in media.\
+\
+8/2/11 @ 12:49 DC\
+Targets: Biolume, Biolume.display(), Biolume.parent_reproduce(), Biolume.reset()\
+-Added a flag to the Biolume to keep track of whether it's a child or parent. Added a (p) or (c) correspondingly. Removed the output that states parent and child since now it'll be obvious. \
+Targets: Instruction, Biolume.add_energy(), Simulator, Simulator.mouse_pressed()\
+-Added clickable selection. If the mouse is clicked on a biome, it will gain energy. I had to crank mutation rates up, crank up the speed and give a huge reward in order to see effects, but I did achieve a sweep. Also added energy values for each of the interactions, although they're just dummy numbers right now. Also changed add_energy to receive a double (which is what's used for everything else) instead of a float. \
+\
+8/1/11 @ 8:55 AF\
+-Put global pressure buttons back on and altered pause button.\
+-Reduced reproduction rates even further to slow down the appearance of births in larger Biolumes.\
+\
+8/1/11 @ 7:40 DC\
+Target: Biolume.display()\
+-Altered the appearance of the biomes. Now the square is cut in half for each LED with no reserved space for sound. If they do make a sound, a musical note appears over the center of the full square. I think it's small enough to not confusion over the color. \
+Target: Simulator.setup()\
+-Changed the file extension from .jpg to .png.\
+-Switched the WIDTH and HEIGHT on the pause button. They were reversed from the other squares. \
+Target: media folder\
+-Added sound.png. If everyone is ok with the new look, we can remove the previous sound.jpg file. \
+Target: Biolume.set_energy(), Biolume.add_energy()\
+-Added guards to ensure the MAX_ENERGY is never exceeded. \
+Target: Instruction\
+-Had to make MAX_ENERGY public in order to make the above relevant. \
+\
+8/1/11 @ 11:43 DC\
+Changed: Simulator.reproduce_biolume()\
+-The old_age was never being updated. Added cur_age which is compared to old_age and replaces it if older. Now repro replaces the first oldest neighbor encountered.\
+\
+7/29/11 at 3:15\
+-updated Biolume representation AF\
+-Changed reproduction rates AF\
+\
+7/29/11 at 10:20\
+- added a pause button TC\
+- fixed the reproduction mechanism TC\
+- added text to reproducing Biolumes TC\
+\
+7/28/11 at 5:43\
+- changed the reproduction mechanism TC\
+  > still not quite correct, but closer to what we have talked about TC\
+}

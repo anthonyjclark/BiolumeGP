@@ -1,0 +1,5 @@
+- To checkout the Biolume Simulator source code
+svn co svn+ssh://[username]@black.cse.msu.edu/user/research/mckinley/Clark/biolume-rep
+
+- To commit changes (must be part of 'cgr' group)
+svn commit -m "[message]"

@@ -1,0 +1,1 @@
+INDEX VERSION 1.126+/Users/couvertier/Desktop/Dropbox/BiolumeGP/Biolume - JavaApp/Biolume_v0.3_082211/.metadata/.plugins/org.eclipse.jdt.core
