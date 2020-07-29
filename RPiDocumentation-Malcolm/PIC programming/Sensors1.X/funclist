@@ -1,0 +1,7 @@
+_configure_adc: CODE, 1996 0 26
+_main: CODE, 2022 0 26
+__initialization: CODE, 1963 0 0
+_adc_on: CODE, 1960 0 3
+_read_sensor: CODE, 1972 0 24
+_choose_microphone: CODE, 1966 0 6
+Total: 85

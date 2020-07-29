@@ -1,0 +1,48 @@
+
+# code versions
+pythonSerial.py is python v2 code, must be run with constants.py
+pythonSerial_v3.py is python v3 code, must be run with constants_v3.py
+constants.py is python v2 code
+constants_v3.py is python v3 code
+manager.py is python v2 code, must be run with constants.py
+
+# how to run biolumes and manager
+The manager:   run 'python manager.py' on one computer.
+Running this will output the commands that must be run to start the Biolumes (see function Manager.start_biolumes()).
+
+The biolume:   run 'python biolumeSerial_v3.py <ip address of the manager computer> <biolume id> -ds' on the RPis.
+-ds is optional, for if you want to run it without the sensors.
+There is also a biolume_info.cv file that the manager program reads from. If you want the manager to be able to send messages back to the biolume you'll have to change the info listed here. Something like:
+
+    ipAddress,x,y
+    10.0.1.34,1,0
+
+should work for you.
+
+# how to install libraries used in biolume code
+To install PyAudio: (instructions from http://www.raspberrypi.org/phpBB3/viewtopic.php?f=31&t=25173)
+(we won't need this when mic on the shield is working)
+	sudo apt-get install git
+	sudo git clone http://people.csail.mit.edu/hubert/git/pyaudio.git
+	sudo apt-get install libportaudio0 libportaudio2 libportaudiocpp0 portaudio19-dev
+	sudo apt-get install python-dev (?)
+	sudo apt-get install python-dev-all
+	cd pyaudio
+	sudo python3 setup.py install
+
+To install PyGame: (instructions from http://www.pygame.org/wiki/compileUbuntu?parent=index)
+	#install dependencies
+	sudo apt-get install mercurial python3-dev python3-numpy ffmpeg \
+		libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev libsmpeg-dev \
+		libsdl1.2-dev  libportmidi-dev libswscale-dev libavformat-dev libavcodec-dev
+	 
+	# Grab source
+	hg clone https://bitbucket.org/pygame/pygame
+	 
+	# Finally build and install
+	cd pygame
+	python3 setup.py build
+	sudo python3 setup.py install
+
+To install SciPy:
+	run 'sudo apt-get install python3-scipy' on the RPis.
